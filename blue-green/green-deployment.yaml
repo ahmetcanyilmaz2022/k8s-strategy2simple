@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-2-green
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: hello
+      version: green
+  template:
+    metadata:
+      labels:
+        app: hello
+        version: green
+    spec:
+      containers:
+      - name: hello
+        image: gcr.io/google-samples/hello-app:2.0
+        ports:
+        - containerPort: 80
